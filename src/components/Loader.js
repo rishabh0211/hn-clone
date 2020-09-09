@@ -1,10 +1,16 @@
 import React from 'react';
+import StyledLoader from './styled/StyledLoader';
 
 const Loader = () => {
   return (
-    <div>
-      Loading...
-    </div>
+    <StyledLoader>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </StyledLoader>
   )
 }
 

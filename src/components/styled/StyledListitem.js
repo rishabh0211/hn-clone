@@ -4,9 +4,7 @@ import { hex2rgba } from "../../utils";
 export default styled.li`
   padding: 1rem;
   font-weight: 300;
-  &:not(:last-child) {
-    border-bottom: ${({theme: {colors}}) => hex2rgba(colors.black, 0.2)} solid .1rem;
-  }
+  border-bottom: ${({theme: {colors}}) => hex2rgba(colors.black, 0.2)} solid .1rem;
   .title-container {
     font-size: 1.4rem;
     display: flex;

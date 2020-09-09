@@ -1,14 +1,11 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import StyledNavbar from './styled/StyledNavbar';
 
 const Navbar = () => {
   return (
     <StyledNavbar>
       <div className="logo">
-        <Link to="/">
-          <img src="/logo192.png" className="logo__img" />
-        </Link>
+        <img src="/logo192.png" className="logo__img" />
         <h1 className="logo__title">HackerNews</h1>
       </div>
       <ul className="links">

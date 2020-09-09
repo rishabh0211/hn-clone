@@ -6,14 +6,12 @@ import Listitem from './Listitem';
 const NewsList = ({ stories }) => {
   return (
     <>
-      {!!stories.length ?
+      {!!stories.length &&
         <StyledNewsList>
           {stories.map((story, index) => (
             <Listitem story={story} key={story.id} index={index+1}></Listitem>
           ))}
         </StyledNewsList>
-        :
-        <h1>Loading...</h1>
       }
     </>
   )
