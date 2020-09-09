@@ -1,12 +1,21 @@
 import React from 'react';
 import { connect } from "react-redux";
 import StyledNewsList from './styled/StyledNewsList';
+import Listitem from './Listitem';
 
-const NewsList = () => {
+const NewsList = ({ stories }) => {
   return (
-    <StyledNewsList>
-      <h1>Newest</h1>
-    </StyledNewsList>
+    <>
+      {!!stories.length ?
+        <StyledNewsList>
+          {stories.map((story, index) => (
+            <Listitem story={story} key={story.id} index={index+1}></Listitem>
+          ))}
+        </StyledNewsList>
+        :
+        <h1>Loading...</h1>
+      }
+    </>
   )
 }
 

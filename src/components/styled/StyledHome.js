@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export default styled.main `
-  background: ${({theme}) => theme.colors.lightGray};
+  background: ${({theme}) => theme.colors.bodyBg};
   max-width: 100rem;
   width: 100%;
   margin: auto;
@@ -9,6 +9,6 @@ export default styled.main `
 
   .list-container {
     margin-top: 1rem;
-    padding: 0 1rem;
+    padding: 1rem;
   }
 `;

@@ -8,6 +8,7 @@ import { getData } from './actions';
 import Home from './components/Home';
 
 const store = configureStore();
+
 ReactDOM.render(
   <Provider store={store}>
     <GlobalStyle />

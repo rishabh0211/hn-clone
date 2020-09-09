@@ -1,17 +1,22 @@
 const theme = {
   colors: {
-    lightGray: "#edf6f9",
-    gray: "#dbdff1",
-    darkGray: "#818d90",
+    // lightGray: "#edf6f9",
+    // gray: "#dbdff1",
+    // darkGray: "#818d90",
+    // black: "#000000",
+    // white: "#ffffff",
+    // purple: "#8676ff",
+    // pink: "#ff708b",
+    // darkBlue: "#383874",
+    // orange: "#ffba69",
+    // green: "#1eab0e",
+    // red: "#ff2d2e",
+    // blue: "#023aff",
+    mainBg: "#e5e5e5",
+    bodyBg: "#cecece",
+    ulBg: "#a1b8b7",
     black: "#000000",
-    white: "#ffffff",
-    purple: "#8676ff",
-    pink: "#ff708b",
-    darkBlue: "#383874",
-    orange: "#ffba69",
-    green: "#1eab0e",
-    red: "#ff2d2e",
-    blue: "#023aff",
+    white: "#ffffff"
   },
   fonts: {
     Roboto: "Roboto, sans-serif"

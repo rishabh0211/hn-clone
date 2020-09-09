@@ -24,6 +24,7 @@ export const fetchStories = ({ storyIds, page } = {}) => {
     let ids = storyIds.slice(start, end);
     let storyApis = ids.map(id => axios.get(getStoryItemApiUrl(id)));
     return Promise.all(storyApis)
+      .then(res => res.map(item => item.data))
       .then(stories => {
         dispatch(getActionObj(actionsTypes.FETCH_STORIES_SUCCESS, { stories }));
       });

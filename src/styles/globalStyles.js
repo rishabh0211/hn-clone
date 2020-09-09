@@ -23,6 +23,9 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+    font-family: "Roboto, sans-serif";
+    font-size: 1.4rem;
+    background: ${colors.mainBg};
 
     &.hidden {
       overflow: hidden;
@@ -54,7 +57,7 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover,
     &:focus {
-      color: ${colors.darkBlue};
+
     }
   }
 
