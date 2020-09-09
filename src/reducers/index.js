@@ -1,11 +1,13 @@
 import * as actionsTypes from "../constants/actionsTypes";
+import { TABS } from "../constants/general";
 
 const initialState = {
   storyIds: [],
   stories: [],
   isLoading: false,
   error: '',
-  page: 0
+  page: 0,
+  activeTab: TABS.TOP_STORIES
 };
 
 export default (state = initialState, { type, payload }) => {

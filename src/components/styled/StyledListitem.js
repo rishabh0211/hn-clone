@@ -12,16 +12,18 @@ export default styled.li`
     display: flex;
   }
   .title {
-    margin-right: 1rem;
+
   }
   .info-container {
     display: flex;
     margin-top: .4rem;
     margin-left: 1rem;
+    color: ${({ theme: { colors } }) => hex2rgba(colors.black, 0.4)};
   }
   .website {
     color: ${({ theme: { colors } }) => hex2rgba(colors.black, 0.4)};
     font-weight: 500;
+    margin-left: .4em;
     &:hover {
       text-decoration: underline;
     }
@@ -35,6 +37,6 @@ export default styled.li`
   .separator {
     width: .1rem;
     margin: .2rem 0.3rem 0 0;
-    background: ${({ theme: { colors } }) => colors.black};
+    background: ${({ theme: { colors } }) => hex2rgba(colors.black, 0.4)};
   }
 `;

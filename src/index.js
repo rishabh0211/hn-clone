@@ -6,13 +6,16 @@ import GlobalStyle from './styles/globalStyles';
 import configureStore from "./store";
 import { getData } from './actions';
 import Home from './components/Home';
+import { BrowserRouter as Router } from "react-router-dom";
 
 const store = configureStore();
-
+window.store = store;
 ReactDOM.render(
   <Provider store={store}>
     <GlobalStyle />
-    <Home />
+    <Router>
+      <Home />
+    </Router>
   </Provider>,
   document.getElementById('root')
 );

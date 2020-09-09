@@ -7,7 +7,7 @@ const getActionObj = (type, payload) => ({ type, payload });
 export const fetchStoryIds = (payload = {}) => {
   return (dispatch) => {
     dispatch(getActionObj(actionsTypes.FETCH_STORY_IDS_REQUEST));
-    return fetch(apiEndpoints.API_FETCH_STORY_IDS)
+    return fetch(apiEndpoints.API_FETCH_TOPSTORY_IDS)
       .then(res => res.json())
       .then(storyIds => {
         dispatch(getActionObj(actionsTypes.FETCH_STORY_IDS_SUCCESS, { storyIds }));
