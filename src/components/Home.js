@@ -1,20 +1,18 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from "react-redux";
 import { ThemeProvider } from "styled-components";
 import InfiniteScroll from 'react-infinite-scroller';
+import { Switch, Route } from "react-router-dom"
 import StyledHome from './styled/StyledHome';
 import { selectNews } from '../selectors/newsSelector';
 import theme from '../styles/theme';
 import NewsList from './NewsList';
 import Navbar from './Navbar';
-import { fetchStoryIds, fetchStories } from '../actions';
+import { fetchStories } from '../actions';
 import Loader from './Loader';
+import UserDetails from './UserDetails';
 
-const Home = ({ hackernews, getStoryIds, fetchStories }) => {
-
-  useEffect(() => {
-    getStoryIds();
-  }, [getStoryIds]);
+const Home = ({ hackernews, fetchStories }) => {
 
   const hasMoreStories = () => {
     return hackernews.stories.length !== hackernews.storyIds.length;
@@ -29,17 +27,22 @@ const Home = ({ hackernews, getStoryIds, fetchStories }) => {
     <ThemeProvider theme={theme}>
       <StyledHome>
         <Navbar></Navbar>
-        <InfiniteScroll
-          pageStart={0}
-          hasMore={hasMoreStories()}
-          loadMore={loadMoreStories}
-          initialLoad={false}
-          loader={<Loader key={0} />}
-        >
-          <div className="list-container">
-            <NewsList></NewsList>
-          </div>
-        </InfiniteScroll>
+        <Switch>
+          <Route path="/" exact render={() => (
+            <InfiniteScroll
+              pageStart={0}
+              hasMore={hasMoreStories()}
+              loadMore={loadMoreStories}
+              initialLoad={false}
+              loader={<Loader key={0} />}
+            >
+              <div className="list-container">
+                <NewsList></NewsList>
+              </div>
+            </InfiniteScroll>
+          )}></Route>
+          <Route path="/user" component={UserDetails} />
+        </Switch>
       </StyledHome>
     </ThemeProvider>
   )
@@ -53,7 +56,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToPros = dispatch => {
   return {
-    getStoryIds: () => dispatch(fetchStoryIds()),
     fetchStories: (storyIds, page) => dispatch(fetchStories({ storyIds, page }))
   }
 };

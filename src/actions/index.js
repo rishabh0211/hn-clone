@@ -31,4 +31,15 @@ export const fetchStories = ({ storyIds, page } = {}) => {
   };
 };
 
+export const fetchUserDetails = (userId) => {
+  return dispatch => {
+    dispatch(getActionObj(actionsTypes.FETCH_USER_REQUEST));
+    return fetch(`${API_URL}/user/${userId}${API_QUERY}`)
+      .then(res => res.json())
+      .then(userData => {
+        dispatch(getActionObj(actionsTypes.FETCH_USER_SUCCESS, { userData }));
+      });
+  };
+};
+
 const getStoryItemApiUrl = id => `${API_URL}/item/${id}${API_QUERY}`;

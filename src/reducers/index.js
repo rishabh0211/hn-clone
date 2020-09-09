@@ -7,7 +7,9 @@ const initialState = {
   isLoading: false,
   error: '',
   page: 0,
-  activeTab: TABS.TOP_STORIES
+  activeTab: TABS.TOP_STORIES,
+  user: {},
+  isLoadingUser: false
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -35,6 +37,17 @@ export default (state = initialState, { type, payload }) => {
         page: state.page + 1,
         isLoading: false
       }
+    case actionsTypes.FETCH_USER_REQUEST:
+      return {
+        ...state,
+        isLoadingUser: true
+      };
+    case actionsTypes.FETCH_USER_SUCCESS:
+      return {
+        ...state,
+        isLoadingUser: false,
+        user: payload.userData
+      };
     default:
       return state;
   }

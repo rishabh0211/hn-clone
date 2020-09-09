@@ -9,9 +9,6 @@ export default styled.li`
     font-size: 1.4rem;
     display: flex;
   }
-  .title {
-
-  }
   .info-container {
     display: flex;
     margin-top: .4rem;
