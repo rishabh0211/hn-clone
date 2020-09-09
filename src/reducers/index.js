@@ -40,6 +40,9 @@ export default (state = initialState, { type, payload }) => {
     case actionsTypes.FETCH_USER_REQUEST:
       return {
         ...state,
+        storyIds: [],
+        stories: [],
+        page: 0,
         isLoadingUser: true
       };
     case actionsTypes.FETCH_USER_SUCCESS:

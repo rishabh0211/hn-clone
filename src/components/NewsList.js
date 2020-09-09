@@ -8,7 +8,7 @@ const NewsList = ({ stories, getStoryIds }) => {
 
   useEffect(() => {
     getStoryIds();
-  });
+  }, []);
 
   return (
     <>

@@ -15,24 +15,27 @@ const UserDetails = ({ fetchUserDetails, userDetails = {}, isLoadingUser }) => {
 
   return (
     <StyledUserDetails>
-    {!isLoadingUser ? 
-      <table>
-        <tr>
-          <td>User</td>
-          <td>{id}</td>
-        </tr>
-        <tr>
-          <td>Created</td>
-          <td>{moment(created*1000).format('MMMM DD, YYYY')}</td>
-        </tr>
-        <tr>
-          <td>Karma</td>
-          <td>{karma}</td>
-        </tr>
-      </table>
-      : 
-      <h1>Loading</h1>
-    }
+      {!isLoadingUser ?
+        <table>
+          <tbody>
+
+            <tr>
+              <td>User</td>
+              <td>{id}</td>
+            </tr>
+            <tr>
+              <td>Created</td>
+              <td>{moment(created * 1000).format('MMMM DD, YYYY')}</td>
+            </tr>
+            <tr>
+              <td>Karma</td>
+              <td>{karma}</td>
+            </tr>
+          </tbody>
+        </table>
+        :
+        <h1>Loading</h1>
+      }
     </StyledUserDetails>
   )
 }
