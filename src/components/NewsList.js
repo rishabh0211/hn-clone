@@ -4,10 +4,10 @@ import StyledNewsList from './styled/StyledNewsList';
 import Listitem from './Listitem';
 import { fetchStoryIds } from '../actions';
 
-const NewsList = ({ stories, getStoryIds }) => {
+const NewsList = ({ stories, getStoryIds, activeTab }) => {
 
   useEffect(() => {
-    getStoryIds();
+    getStoryIds(activeTab);
   }, []);
 
   return (
@@ -24,13 +24,13 @@ const NewsList = ({ stories, getStoryIds }) => {
 }
 
 const mapStateToPros = state => {
-  const { hackernews: { stories } } = state;
-  return { stories }
+  const { hackernews: { stories, activeTab } } = state;
+  return { stories, activeTab }
 }
 
 const mapDispatchToPros = dispatch => {
   return {
-    getStoryIds: () => dispatch(fetchStoryIds()),
+    getStoryIds: tab => dispatch(fetchStoryIds(tab)),
   }
 };
 

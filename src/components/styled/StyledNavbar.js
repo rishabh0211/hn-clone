@@ -34,6 +34,10 @@ export default styled.nav`
         transform: translateY(-.2rem);
         text-decoration: underline;
       }
+      &.active {
+        background: #ffba69;
+        color: #fff;
+      }
     }
   }
 `;

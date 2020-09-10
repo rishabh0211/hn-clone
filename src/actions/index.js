@@ -1,13 +1,14 @@
 import * as actionsTypes from "../constants/actionsTypes";
-import { apiEndpoints, NEWS_LIMIT, API_QUERY, API_URL } from "../constants/general";
+import { NEWS_LIMIT, API_QUERY, API_URL, TABS } from "../constants/general";
 import axios from "axios";
 
 const getActionObj = (type, payload) => ({ type, payload });
 
-export const fetchStoryIds = (payload = {}) => {
+export const fetchStoryIds = tab => {
   return (dispatch) => {
     dispatch(getActionObj(actionsTypes.FETCH_STORY_IDS_REQUEST));
-    return fetch(apiEndpoints.API_FETCH_TOPSTORY_IDS)
+    const apiEndpoint = getApiEndpoint(tab);
+    return fetch(apiEndpoint)
       .then(res => res.json())
       .then(storyIds => {
         dispatch(getActionObj(actionsTypes.FETCH_STORY_IDS_SUCCESS, { storyIds }));
@@ -42,4 +43,15 @@ export const fetchUserDetails = (userId) => {
   };
 };
 
+export const onTabChange = tab => {
+  return dispatch => {
+    dispatch(getActionObj(actionsTypes.TAB_CHANGE_START, { tab }));
+    dispatch(fetchStoryIds(tab));
+  };
+};
+
 const getStoryItemApiUrl = id => `${API_URL}/item/${id}${API_QUERY}`;
+
+const getApiEndpoint = tab => {
+  return `${API_URL}/${tab}${API_QUERY}`;
+};

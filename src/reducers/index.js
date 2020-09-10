@@ -51,6 +51,15 @@ export default (state = initialState, { type, payload }) => {
         isLoadingUser: false,
         user: payload.userData
       };
+    case actionsTypes.TAB_CHANGE_START:
+      return {
+        ...state,
+        storyIds: [],
+        stories: [],
+        page: 0,
+        isLoading: true,
+        activeTab: payload.tab
+      }
     default:
       return state;
   }
